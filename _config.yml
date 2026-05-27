@@ -21,3 +21,4 @@ exclude:
   - .gitnexus
   - README.txt
   - LICENSE.txt
+  - private-content
