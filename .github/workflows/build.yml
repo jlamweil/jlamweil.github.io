@@ -2,7 +2,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   repository_dispatch:
     types: [content-updated]
   workflow_dispatch:
