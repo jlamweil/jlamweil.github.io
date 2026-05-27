@@ -1,0 +1,22 @@
+title: Joseph Lam-Weil
+permalink: /notes/:slug/
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - assets2
+  - images2
+  - index_files2
+  - .claude
+  - .gitnexus
+  - README.txt
+  - LICENSE.txt

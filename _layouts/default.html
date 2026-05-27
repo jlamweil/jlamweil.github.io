@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    {% if page.excerpt %}
+    <meta name="description" content="{{ page.excerpt | strip_html | normalize_whitespace | truncate: 160 }}">
+    {% endif %}
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.excerpt %}
+    <meta property="og:description" content="{{ page.excerpt | strip_html | normalize_whitespace | truncate: 200 }}">
+    {% endif %}
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Notes" href="{{ '/feed.xml' | relative_url }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400">
+    <link rel="stylesheet" href="{{ '/index_fichiers/main.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/notes.css' | relative_url }}">
+  </head>
+  <body>
+    <nav class="notes-nav">
+      <a href="/">Home</a> / <a href="/notes/">Notes</a>
+    </nav>
+    {{ content }}
+  </body>
+</html>
