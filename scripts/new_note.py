@@ -31,7 +31,7 @@ def derive_slug(title: str) -> str:
 
 
 def read_template_sections(ptype: str) -> str:
-    """Return the body section-headers (everything after front matter) from a template file."""
+    """Return the body from a template file."""
     template_path = os.path.join(_TEMPLATE_DIR, f"{ptype}.md")
     if not os.path.isfile(template_path):
         print(f"Error: template '{ptype}' not found at {template_path}", file=sys.stderr)
@@ -48,9 +48,38 @@ def read_template_sections(ptype: str) -> str:
     return parts[2].lstrip("\n")
 
 
-def build_post_content(title: str, slug: str, today_str: str, tags: list[str], ptype: str) -> str:
+def split_template_layers(body: str) -> tuple[list[str], list[str]]:
+    """Split template body into human and deep layer sections."""
+    marker = "\n---\n"
+    if marker not in body:
+        return [body.rstrip("\n")], []
+
+    human, deep = body.split(marker, 1)
+    human_sections = [section.rstrip("\n") for section in human.strip().split("\n\n") if section.strip()]
+    deep_sections = [section.rstrip("\n") for section in deep.strip().split("\n\n") if section.strip()]
+    return human_sections, deep_sections
+
+
+def build_sections(level: str, body: str) -> str:
+    human_sections, deep_sections = split_template_layers(body)
+
+    if level == "human":
+        sections = human_sections
+    elif level == "deep":
+        sections = deep_sections
+    else:
+        sections = human_sections + (["---"] if deep_sections else []) + deep_sections
+
+    if not sections:
+        return ""
+
+    return "\n\n".join(sections).rstrip() + "\n"
+
+
+def build_post_content(title: str, slug: str, today_str: str, tags: list[str], ptype: str, level: str) -> str:
     """Assemble the full Markdown content for the new post."""
     body = read_template_sections(ptype)
+    body = build_sections(level, body)
     tags_yaml = ", ".join(tags) if tags else ""
 
     front_matter = (
@@ -89,6 +118,12 @@ def main() -> None:
         action="store_true",
         help="Print what would be created without writing any file",
     )
+    parser.add_argument(
+        "--level",
+        choices=["human", "deep", "full"],
+        default="full",
+        help="Scaffold human layer, deep layer, or both (default: full)",
+    )
     args = parser.parse_args()
 
     title = args.title.strip()
@@ -122,9 +157,27 @@ def main() -> None:
         print(f"  date:  {today_str}")
         print(f"  tags:  {args.tags}")
         print(f"  type:  {ptype}")
+        print(f"  level: {args.level}")
+        human_sections, deep_sections = split_template_layers(read_template_sections(ptype))
+        if args.level == "human":
+            print("  sections: human layer only")
+            for section in human_sections:
+                print(f"    - {section.splitlines()[0]}")
+        elif args.level == "deep":
+            print("  sections: deep layer only")
+            for section in deep_sections:
+                print(f"    - {section.splitlines()[0]}")
+        else:
+            print("  sections: human + deep layers")
+            for section in human_sections:
+                print(f"    - {section.splitlines()[0]}")
+            if deep_sections:
+                print("    - ---")
+                for section in deep_sections:
+                    print(f"    - {section.splitlines()[0]}")
         return
 
-    content = build_post_content(title, slug, today_str, args.tags, ptype)
+    content = build_post_content(title, slug, today_str, args.tags, ptype, args.level)
     with open(filepath, "w", encoding="utf-8") as fh:
         fh.write(content)
 

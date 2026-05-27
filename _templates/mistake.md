@@ -1,26 +1,25 @@
 ---
 title: ""
-date: ""
+date: YYYY-MM-DD
 slug: ""
 tags: []
 excerpt: ""
 ---
 
-## Mistake
-
-
+## The mistake
 
 ## Why it happens
 
-
-
-## Minimal example
-
-
-
 ## Better pattern
-
-
 
 ## Rule of thumb
 
+---
+
+## Deep dive
+
+## Root cause analysis
+
+## Detection patterns
+
+## Fix variants

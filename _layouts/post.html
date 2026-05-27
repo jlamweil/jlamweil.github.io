@@ -6,7 +6,7 @@ layout: default
 {% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
 
 <section class="container post-page" style="max-width: 45em; margin: 0 auto; padding: 3em 1.5em;">
-  <article>
+  <article id="top">
     <header>
       <h1>{{ page.title }}</h1>
       <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
@@ -17,6 +17,8 @@ layout: default
         </p>
       {% endif %}
     </header>
+
+    <p class="deep-dive-jump"><a href="#deep-dive">Skip to deep dive →</a></p>
 
     <div class="post-body">
       {{ content }}
@@ -45,6 +47,6 @@ layout: default
     </nav>
     {% endif %}
 
-    <p class="back-link"><a href="{{ '/lessons/' | relative_url }}">← Back to Lessons</a></p>
+    <p class="back-link"><a href="#top">↑ Back to top</a> <span class="back-separator">·</span> <a href="{{ '/lessons/' | relative_url }}">← Back to Lessons</a></p>
   </article>
 </section>

@@ -1,26 +1,25 @@
 ---
 title: ""
-date: ""
+date: YYYY-MM-DD
 slug: ""
 tags: []
 excerpt: ""
 ---
 
-## Idea
-
-
-
-## Intuition
-
-
-
-## Small example
-
-
+## The intuition
 
 ## Why it matters
 
+## What I learned
 
+---
 
-## Caveat
+## Deep dive
 
+## Formal definition
+
+## Full example
+
+## Caveats and edge cases
+
+## References

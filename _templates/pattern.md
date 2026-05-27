@@ -1,6 +1,6 @@
 ---
 title: ""
-date: ""
+date: YYYY-MM-DD
 slug: ""
 tags: []
 excerpt: ""
@@ -8,19 +8,16 @@ excerpt: ""
 
 ## Use case
 
-
-
-## Pattern
-
-
-
-## Example
-
-
-
 ## Why I like it
 
+## Quick example
 
+---
 
-## Caveat
+## Deep dive
 
+## Full implementation
+
+## Variants
+
+## When NOT to use it
