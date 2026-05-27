@@ -1,0 +1,50 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+  repository_dispatch:
+    types: [content-updated]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout public repo
+        uses: actions/checkout@v4
+
+      - name: Checkout private content repo
+        uses: actions/checkout@v4
+        with:
+          repository: jlamweil/lessons-content
+          ssh-key: ${{ secrets.LESSONS_DEPLOY_KEY }}
+          path: private-content
+
+      - name: Merge content
+        run: |
+          cp -r private-content/_posts ./
+          cp -r private-content/_drafts ./ 2>/dev/null || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
