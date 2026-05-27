@@ -1,7 +1,7 @@
-/* Notes section styles — consistent with the existing "Read Only" HTML5 UP theme */
+/* Lessons section styles — consistent with the existing "Read Only" HTML5 UP theme */
 
-/* Navigation bar for notes pages */
-.notes-nav {
+/* Navigation bar for lessons pages */
+.lessons-nav {
   background: #8ba3cb;
   color: #fff;
   padding: 0.75em 1.5em;
@@ -9,18 +9,18 @@
   font-size: 0.9em;
 }
 
-.notes-nav a {
+.lessons-nav a {
   color: #fff;
   border-bottom: none;
 }
 
-.notes-nav a:hover {
+.lessons-nav a:hover {
   color: #d2f2e9 !important;
   border-bottom: none;
 }
 
-/* Notes list page */
-.notes-intro {
+/* Lessons list page */
+.lessons-intro {
   font-style: italic;
   color: #aaa;
   margin-bottom: 2.25em;
@@ -163,6 +163,50 @@
   border-bottom: none;
 }
 
+/* Social share buttons */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 2em 0 0;
+  padding-top: 1em;
+}
+
+.share-label {
+  font-size: 0.85em;
+  color: #aaa;
+  margin-right: 0.25em;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 3px;
+  font-size: 0.95em;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.share-button:hover {
+  opacity: 0.8;
+  border: none;
+}
+
+.share-button.twitter {
+  background: #000;
+  color: #fff !important;
+}
+
+.share-button.linkedin {
+  background: #0077b5;
+  color: #fff !important;
+}
+
 /* Post navigation (prev/next) */
 .post-navigation {
   display: flex;
@@ -202,7 +246,7 @@
 
 /* Responsive */
 @media screen and (max-width: 736px) {
-  .notes-nav {
+  .lessons-nav {
     padding: 0.5em 1em;
     font-size: 0.85em;
   }

@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Notes
-permalink: /notes/
+title: Lessons from the Tokens
+permalink: /lessons/
 ---
 
-<section class="container notes-list" style="max-width: 45em; margin: 0 auto; padding: 3em 1.5em;">
-  <h1>Notes</h1>
-  <p class="notes-intro">Small notes on AI, data science, machine learning, and research software. These are short lessons, observations, and patterns I want to keep track of and share.</p>
+<section class="container lessons-list" style="max-width: 45em; margin: 0 auto; padding: 3em 1.5em;">
+  <h1>Lessons from the Tokens</h1>
+  <p class="lessons-intro">Lessons from the Tokens: short notes on AI, data science, machine learning, and research software. These are small lessons, observations, and patterns I want to keep track of and share.</p>
 
   {% if site.posts.size == 0 %}
-    <p>No notes yet.</p>
+    <p>No lessons yet.</p>
   {% else %}
     {% for post in site.posts %}
       <article class="post-preview">

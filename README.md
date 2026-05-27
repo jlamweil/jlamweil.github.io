@@ -2,14 +2,14 @@
 
 Personal website built with [HTML5 UP](https://html5up.net/) "Read Only" template and [Jekyll](https://jekyllrb.com/) (via GitHub Pages).
 
-## Writing notes
+## Writing lessons
 
-The site supports a short-form notes section at `/notes/` for AI, data science, and machine learning content.
+The site supports a short-form lessons section at `/lessons/` for AI, data science, and machine learning content.
 
-### Create a new note
+### Create a new lesson
 
 ```bash
-python scripts/new_note.py "Your note title" --tags tag1 tag2
+python scripts/new_note.py "Your lesson title" --tags tag1 tag2
 ```
 
 Optional flags:
@@ -18,7 +18,7 @@ Optional flags:
 
 This creates a Markdown file in `_posts/` with today's date and a derived slug. The script refuses to overwrite existing files.
 
-### Publish a note
+### Publish a lesson
 
 ```bash
 git add .
@@ -32,9 +32,9 @@ GitHub Pages builds and deploys automatically on push to `master`.
 
 | Directory | Purpose |
 |---|---|
-| `_posts/` | Published notes (filename: `YYYY-MM-DD-slug.md`) |
-| `_drafts/` | Draft notes (not published on GitHub Pages) |
-| `_templates/` | Archetype templates for different note types |
+| `_posts/` | Published lessons (filename: `YYYY-MM-DD-slug.md`) |
+| `_drafts/` | Draft lessons (not published on GitHub Pages) |
+| `_templates/` | Archetype templates for different lesson types |
 
 ### Front matter fields
 

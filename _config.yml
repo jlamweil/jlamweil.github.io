@@ -1,5 +1,6 @@
 title: Joseph Lam-Weil
-permalink: /notes/:slug/
+url: "https://jlamweil.github.io"
+permalink: /lessons/:slug/
 markdown: kramdown
 theme: null
 plugins:

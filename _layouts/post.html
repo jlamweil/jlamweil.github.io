@@ -22,6 +22,14 @@ layout: default
       {{ content }}
     </div>
 
+    {% assign post_url = page.url | absolute_url | url_encode %}
+    {% assign post_title = page.title | url_encode %}
+    <div class="share-buttons">
+      <span class="share-label">Share:</span>
+      <a href="https://twitter.com/intent/tweet?text={{ post_title }}&url={{ post_url }}" target="_blank" rel="noopener" class="share-button twitter" aria-label="Share on Twitter/X">𝕏</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ post_url }}" target="_blank" rel="noopener" class="share-button linkedin" aria-label="Share on LinkedIn">in</a>
+    </div>
+
     {% if page.previous or page.next %}
     <nav class="post-navigation">
       <span class="prev">
@@ -37,6 +45,6 @@ layout: default
     </nav>
     {% endif %}
 
-    <p class="back-link"><a href="{{ '/notes/' | relative_url }}">← Back to Notes</a></p>
+    <p class="back-link"><a href="{{ '/lessons/' | relative_url }}">← Back to Lessons</a></p>
   </article>
 </section>
