@@ -3,3 +3,8 @@ _site
 .sass-cache
 .jekyll-cache
 Gemfile.lock
+private-content/
+_posts
+_drafts
+scripts
+_templates

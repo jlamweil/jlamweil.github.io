@@ -8,8 +8,8 @@ This public repo contains the website machinery only. Lesson content lives in a 
 
 | Repo | Visibility | Contents |
 |---|---|---|
-| `jlamweil.github.io` | **Public** | Layouts, CSS, config, homepage, scripts, templates |
-| `lessons-content` | **Private** | `_posts/` and `_drafts/` with lesson Markdown files |
+| `jlamweil.github.io` | **Public** | Render engine: layouts, CSS, config, homepage |
+| `lessons-content` | **Private** | Authoring environment: content, scripts, templates, agent config |
 
 A GitHub Action merges content from the private repo during each build, then deploys to GitHub Pages.
 
@@ -22,7 +22,11 @@ The site supports a short-form lessons section at `/lessons/` for AI, data scien
 ```bash
 git clone git@github.com:jlamweil/jlamweil.github.io
 git clone git@github.com:jlamweil/lessons-content
-ln -s ../lessons-content/_posts _posts
+cd jlamweil.github.io
+ln -s ../lessons-content/_posts .
+ln -s ../lessons-content/_drafts .
+ln -s ../lessons-content/scripts .
+ln -s ../lessons-content/_templates .
 ```
 
 ### Create a new lesson
@@ -40,7 +44,7 @@ This creates a Markdown file in `_posts/` with today's date and a derived slug. 
 
 ### Publish a lesson
 
-Content goes through the private repo:
+Content and tooling live in the private repo. To publish:
 
 ```bash
 # From the lessons-content repo:
@@ -58,7 +62,8 @@ The GitHub Action picks up the change and deploys within ~2 minutes.
 |---|---|
 | `_posts/` (in lessons-content) | Published lessons (filename: `YYYY-MM-DD-slug.md`) |
 | `_drafts/` (in lessons-content) | Draft lessons |
-| `_templates/` (in this repo) | Archetype templates for different lesson types |
+| `_templates/` (in lessons-content) | Archetype templates for different lesson types |
+| `scripts/` (in lessons-content) | Authoring tools (new_note.py) |
 
 ### Front matter fields
 
@@ -70,7 +75,7 @@ The GitHub Action picks up the change and deploys within ~2 minutes.
 | `tags` | yes | List of topic tags |
 | `excerpt` | no | Short description for listings |
 
-### Template types
+### Template types (in lessons-content/_templates/)
 
 - `concept` — for explaining a useful idea
 - `mistake` — for documenting a common error
