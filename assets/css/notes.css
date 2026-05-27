@@ -1,0 +1,238 @@
+/* Notes section styles — consistent with the existing "Read Only" HTML5 UP theme */
+
+/* Navigation bar for notes pages */
+.notes-nav {
+  background: #8ba3cb;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9em;
+}
+
+.notes-nav a {
+  color: #fff;
+  border-bottom: none;
+}
+
+.notes-nav a:hover {
+  color: #d2f2e9 !important;
+  border-bottom: none;
+}
+
+/* Notes list page */
+.notes-intro {
+  font-style: italic;
+  color: #aaa;
+  margin-bottom: 2.25em;
+}
+
+.post-preview {
+  margin-bottom: 2.25em;
+  padding-bottom: 1.5em;
+  border-bottom: solid 2px #f4f4f4;
+}
+
+.post-preview:last-child {
+  border-bottom: none;
+}
+
+.post-preview h2 {
+  margin: 0 0 0.25em;
+  font-size: 1.35em;
+}
+
+.post-preview h2 a {
+  border-bottom: none;
+  color: #777;
+}
+
+.post-preview h2 a:hover {
+  color: #8ba3cb !important;
+}
+
+.post-meta {
+  color: #aaa;
+  font-size: 0.85em;
+  margin-bottom: 0.5em;
+}
+
+.post-excerpt {
+  color: #888;
+  margin-bottom: 0.5em;
+}
+
+.post-tags {
+  font-size: 0.85em;
+  color: #aaa;
+}
+
+.tag {
+  display: inline-block;
+  background: #f0f4fa;
+  color: #8ba3cb;
+  padding: 0.15em 0.6em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  margin-right: 0.3em;
+}
+
+/* Individual post page */
+.post-page header h1 {
+  color: #777;
+  font-size: 2em;
+  margin-bottom: 0.25em;
+}
+
+.post-page .post-meta {
+  margin-bottom: 1.5em;
+}
+
+/* Reading time estimate */
+.reading-time {
+  color: #aaa;
+  font-size: 0.85em;
+  margin-bottom: 1.5em;
+}
+
+/* Post body content */
+.post-body {
+  line-height: 1.75em;
+  color: #888;
+}
+
+.post-body h2 {
+  font-size: 1.5em;
+  margin: 1.5em 0 0.5em;
+  color: #777;
+}
+
+.post-body h3 {
+  font-size: 1.25em;
+  margin: 1.25em 0 0.5em;
+  color: #777;
+}
+
+.post-body p {
+  margin-bottom: 1.125em;
+}
+
+.post-body ul, .post-body ol {
+  margin-bottom: 1.125em;
+}
+
+.post-body blockquote {
+  font-style: italic;
+  color: #999;
+}
+
+.post-body pre {
+  margin-bottom: 1.5em;
+}
+
+.post-body img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+.post-body table {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+.post-body table th {
+  color: #777;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.5em;
+  border-bottom: solid 2px #e4e4e4;
+}
+
+.post-body table td {
+  padding: 0.5em;
+  border-bottom: solid 1px #f4f4f4;
+}
+
+/* Back link */
+.back-link {
+  margin-top: 3em;
+  font-size: 0.9em;
+}
+
+.back-link a {
+  border-bottom: none;
+}
+
+/* Post navigation (prev/next) */
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: solid 2px #f4f4f4;
+  font-size: 0.9em;
+}
+
+.post-navigation a {
+  border-bottom: none;
+}
+
+.post-navigation .prev {
+  text-align: left;
+}
+
+.post-navigation .next {
+  text-align: right;
+}
+
+/* RSS link */
+.rss-link {
+  margin-top: 2em;
+  font-size: 0.85em;
+}
+
+.rss-link a {
+  border-bottom: none;
+  color: #aaa;
+}
+
+.rss-link a:hover {
+  color: #8ba3cb !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 736px) {
+  .notes-nav {
+    padding: 0.5em 1em;
+    font-size: 0.85em;
+  }
+
+  .post-page header h1 {
+    font-size: 1.5em;
+  }
+
+  .post-preview h2 {
+    font-size: 1.15em;
+  }
+
+  .post-body {
+    font-size: 0.95em;
+  }
+
+  .post-body h2 {
+    font-size: 1.3em;
+  }
+
+  .post-body h3 {
+    font-size: 1.1em;
+  }
+
+  .post-navigation {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .post-navigation .next {
+    text-align: left;
+  }
+}
