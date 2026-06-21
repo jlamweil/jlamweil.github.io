@@ -2,6 +2,8 @@
 
 Personal website built with [HTML5 UP](https://html5up.net/) "Read Only" template and [Jekyll](https://jekyllrb.com/) (via GitHub Pages).
 
+> ⚠️ **MANUAL SETUP REQUIRED** — The deploy pipeline has an approval gate that needs one-time config in Settings → Environments → `github-pages` → enable **Required reviewers** → add yourself. Without this, the guardrail is not active.
+
 ## Repository structure
 
 This public repo contains the website machinery only. Lesson content lives in a private repository.
@@ -55,6 +57,8 @@ git push
 ```
 
 The GitHub Action picks up the change, builds the site, then pauses for human approval before deploying. Approve via GitHub (web or mobile) in Actions → workflow run → Review deployments.
+
+> **⚠️ One-time setup:** Settings → Environments → `github-pages` → enable **Required reviewers** → add yourself. Otherwise deploy runs immediately.
 
 **Note:** `_drafts/` is for local authoring only — never deployed.
 
