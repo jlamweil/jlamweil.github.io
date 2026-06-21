@@ -54,7 +54,9 @@ git commit -m "Add lesson on validation leakage"
 git push
 ```
 
-The GitHub Action picks up the change and deploys within ~2 minutes.
+The GitHub Action picks up the change, builds the site, then pauses for human approval before deploying. Approve via GitHub (web or mobile) in Actions → workflow run → Review deployments.
+
+**Note:** `_drafts/` is for local authoring only — never deployed.
 
 ### Where posts live
 
