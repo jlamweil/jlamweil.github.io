@@ -29,7 +29,12 @@ jobs:
           path: private-content
 
       - name: Merge content
-        run: cp -r private-content/_posts ./
+        run: |
+          if [ -d private-content/_posts ]; then
+            cp -r private-content/_posts ./
+          else
+            mkdir -p _posts
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
